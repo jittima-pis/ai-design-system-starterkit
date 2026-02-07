@@ -3,9 +3,9 @@
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { AspectRatioDemo } from '@/components/aspect-ratio-demo'
+import { SelectBasic, SelectScrollable, SelectForm } from '@/components/select-demo'
 
-export default function AspectRatioPage() {
+export default function SelectPage() {
   return (
     <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -15,10 +15,10 @@ export default function AspectRatioPage() {
           <div className="flex gap-4 items-start w-full">
             <div className="flex-1 flex-col gap-2 flex items-start min-w-0">
               <h1 className="text-4xl font-semibold tracking-tight w-full">
-                Aspect Ratio
+                Select
               </h1>
               <p className="text-base text-muted-foreground w-full">
-                Displays content within a desired ratio.
+                Displays a list of options for the user to pick from—triggered by a button.
               </p>
             </div>
 
@@ -30,7 +30,7 @@ export default function AspectRatioPage() {
               asChild
             >
               <a
-                href="https://ui.shadcn.com/docs/components/aspect-ratio"
+                href="https://ui.shadcn.com/docs/components/select"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium underline flex items-center gap-1.5"
@@ -43,8 +43,18 @@ export default function AspectRatioPage() {
 
           <Separator />
 
-          {/* Aspect Ratio Demo */}
-          <AspectRatioDemo />
+          {/* 1. Basic Select */}
+          <SelectBasic />
+
+          <Separator />
+
+          {/* 2. Scrollable Select */}
+          <SelectScrollable />
+
+          <Separator />
+
+          {/* 3. Form with Select */}
+          <SelectForm />
         </div>
 
         {/* Back to Home button */}

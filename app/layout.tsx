@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DocsHeader } from "@/components/docs-header";
+import { DocsSidebar } from "@/components/docs-sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,16 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "shadcn/ui Starter Kit",
-  description: "A production-ready Next.js starter with shadcn/ui components, design tokens, and Tailwind CSS",
-  keywords: ["nextjs", "shadcn", "ui", "tailwind", "design-system"],
-  authors: [{ name: "Your Name" }],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://example.com",
-    siteName: "shadcn/ui Starter",
-  },
+  title: "shadcn/ui - Component Library",
+  description: "Beautifully designed components built with Radix UI and Tailwind CSS.",
 };
 
 export default function RootLayout({
@@ -31,11 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative flex min-h-screen flex-col">
+          <DocsHeader />
+          <div className="container flex-1">
+            <div className="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
+              <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+                <DocsSidebar />
+              </aside>
+              <main className="relative py-6 lg:gap-10 lg:py-8">
+                {children}
+              </main>
+            </div>
+          </div>
+        </div>
+        <Toaster />
       </body>
     </html>
   );

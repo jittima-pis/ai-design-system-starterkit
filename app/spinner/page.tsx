@@ -3,9 +3,19 @@
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { AspectRatioDemo } from '@/components/aspect-ratio-demo'
+import {
+  SpinnerBasic,
+  SpinnerLoader,
+  SpinnerSizes,
+  SpinnerColors,
+  SpinnerButton,
+  SpinnerBadge,
+  SpinnerInputGroup,
+  SpinnerEmpty,
+  SpinnerItem,
+} from '@/components/spinner-demo'
 
-export default function AspectRatioPage() {
+export default function SpinnerPage() {
   return (
     <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -15,10 +25,10 @@ export default function AspectRatioPage() {
           <div className="flex gap-4 items-start w-full">
             <div className="flex-1 flex-col gap-2 flex items-start min-w-0">
               <h1 className="text-4xl font-semibold tracking-tight w-full">
-                Aspect Ratio
+                Spinner
               </h1>
               <p className="text-base text-muted-foreground w-full">
-                Displays content within a desired ratio.
+                An indicator that can be used to show a loading state.
               </p>
             </div>
 
@@ -30,7 +40,7 @@ export default function AspectRatioPage() {
               asChild
             >
               <a
-                href="https://ui.shadcn.com/docs/components/aspect-ratio"
+                href="https://ui.shadcn.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium underline flex items-center gap-1.5"
@@ -43,8 +53,48 @@ export default function AspectRatioPage() {
 
           <Separator />
 
-          {/* Aspect Ratio Demo */}
-          <AspectRatioDemo />
+          {/* 1. Basic Spinner */}
+          <SpinnerBasic />
+
+          <Separator />
+
+          {/* 2. Loader */}
+          <SpinnerLoader />
+
+          <Separator />
+
+          {/* 3. Size Variations */}
+          <SpinnerSizes />
+
+          <Separator />
+
+          {/* 4. Color Variations */}
+          <SpinnerColors />
+
+          <Separator />
+
+          {/* 5. Button with Spinner */}
+          <SpinnerButton />
+
+          <Separator />
+
+          {/* 6. Badge with Spinner */}
+          <SpinnerBadge />
+
+          <Separator />
+
+          {/* 7. Input Group with Spinner */}
+          <SpinnerInputGroup />
+
+          <Separator />
+
+          {/* 8. Empty State */}
+          <SpinnerEmpty />
+
+          <Separator />
+
+          {/* 9. Download Item */}
+          <SpinnerItem />
         </div>
 
         {/* Back to Home button */}
