@@ -1,17 +1,25 @@
-# shadcn/ui Starter Kit
+# 🎨 shadcn/ui Design System with Figma Integration
 
-A production-ready Next.js starter with [shadcn/ui](https://ui.shadcn.com) components, complete design tokens, and Tailwind CSS configuration.
+A production-ready Next.js starter with [shadcn/ui](https://ui.shadcn.com) components, Figma design tokens sync, and comprehensive documentation site.
 
-## Features
+![Next.js](https://img.shields.io/badge/Next.js-16.1.4-black)
+![React](https://img.shields.io/badge/React-19.2.3-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38bdf8)
 
-- ✨ **Next.js 15** - Latest version with App Router and Server Components
-- 🎨 **shadcn/ui** - 44+ beautifully designed, customizable components
+## ✨ Features
+
+- 🎨 **56+ shadcn/ui Components** - Fully implemented with live examples
+- 🔄 **Figma Sync** - Auto-sync design tokens from Figma (147 styles)
 - 🎭 **Design System** - Complete design tokens and Tailwind configuration
-- 🌓 **Dark Mode** - Built-in dark mode support with CSS variables
+- 🌗 **Dark Mode** - Built-in theme switching with CSS variables
 - 📱 **Responsive** - Mobile-first design approach
+- ♿ **Accessible** - ARIA compliant components
 - 🪝 **Custom Hooks** - Utility hooks for common patterns
 - 📦 **TypeScript** - Full TypeScript support
 - ✅ **ESLint** - Code quality and linting configured
+- 📖 **Documentation Site** - Complete component documentation with sidebar navigation
+- 🚀 **Fast** - Next.js 16 with Turbopack
 
 ## Quick Start
 
@@ -26,11 +34,14 @@ A production-ready Next.js starter with [shadcn/ui](https://ui.shadcn.com) compo
 # Install dependencies
 npm install
 
+# Sync design tokens from Figma
+npm run sync-figma-tokens
+
 # Run development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view the component documentation.
 
 ### Build for Production
 
@@ -63,28 +74,83 @@ npm run start
 └── components.json         # shadcn/ui configuration
 ```
 
-## Design System
+## 🎨 Design System with Figma Integration
 
-### Colors
+This project integrates with Figma design tokens for seamless design-to-code workflow.
+
+### Figma Connection
+
+- **File**: nook@shadcn_ui components with variables & Tailwind classes
+- **File Key**: `sdA9LFFgl6VNgmrHKdIMf9`
+- **Total Styles**: 147 (text, shadows, blur effects)
+- **Variable Modes**: Light (372:1), Dark (373:0), Primary (5248:0)
+
+#### Mode Features
+- 🌞 **Light Mode** - Default light theme with high contrast
+- 🌙 **Dark Mode** - Dark theme for low-light environments
+- 🎨 **Primary Mode** - Brown/warm earth tone theme with natural colors
+- ✅ Auto-switch CSS variables
+- ✅ Persistent mode selection
+- ✅ Mode switcher component
+
+### Sync Design Tokens from Figma
+
+```bash
+npm run sync-figma-tokens
+```
+
+This command:
+1. ✅ Fetches all 147 styles from Figma API
+2. ✅ Parses text styles (13 sizes × 9 weights)
+3. ✅ Parses effect styles (12 shadows, 16 blur effects)
+4. ✅ Generates `lib/design-tokens.ts` automatically
+
+[Learn more about Figma sync →](./docs/FIGMA_SYNC.md)
+
+### Design Token Categories
+
+#### Colors
 
 Available color tokens in `lib/design-tokens.ts`:
 
-- **Primary**: Used for main actions and highlights
+- **Primary**: Used for main actions and highlights (10 shades)
 - **Secondary**: Alternative color for supporting actions
 - **Destructive**: For dangerous actions (delete, etc.)
 - **Muted**: For disabled or less important states
 - **Accent**: For call-to-attention elements
+- **Semantic**: success, warning, error, info (oklch)
+- **Gray Scale**: 50-950 (10 shades)
 
-### Typography
+#### Typography
 
-Preconfigured font families and sizes:
+**Text Styles from Figma** (117 total):
+- **Sizes**: xs, sm, base, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl
+- **Weights**: Thin, Extra Light, Light, Regular, Medium, Semi Bold, Bold, Extra Bold, Black
+- **Fonts**: Geist Sans (default), Geist Mono
 
-- **Sans**: Geist (default)
-- **Mono**: Geist Mono
+Example: `Text-lg/Semi Bold`, `Text-xl/Medium`
 
-### Spacing
+#### Shadows
 
-Consistent spacing scale from 0 to 96 (0-24rem):
+**Box Shadow Styles** (12 from Figma):
+- `shadow-2xs`, `shadow-xs`, `shadow-sm`, `shadow-md`
+- `shadow-lg`, `shadow-xl`, `shadow-2xl`, `shadow-inner`
+- `shadow-none`, `Focus ring`, `Destructive`
+
+#### Effects
+
+**Blur Effects** (8 from Figma):
+- `blur-none`, `blur-sm`, `blur`, `blur-md`
+- `blur-lg`, `blur-xl`, `blur-2xl`, `blur-3xl`
+
+**Backdrop Blur** (8 from Figma):
+- `backdrop-blur-none`, `backdrop-blur-sm`, `backdrop-blur`
+- `backdrop-blur-md`, `backdrop-blur-lg`, `backdrop-blur-xl`
+- `backdrop-blur-2xl`, `backdrop-blur-3xl`
+
+#### Spacing
+
+Consistent spacing scale from 0 to 24 (0-6rem):
 
 ```typescript
 spacing: {
@@ -93,30 +159,51 @@ spacing: {
   2: '0.5rem',     // 8px
   3: '0.75rem',    // 12px
   4: '1rem',       // 16px
-  // ... up to 96: '24rem'
+  // ... up to 24: '6rem'
 }
 ```
 
-### Border Radius
+#### Border Radius
 
 Tokens for consistent rounded corners:
 
-- `sm`, `base`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `full`
+- `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `full`
 
-### Shadows
+[View full design system guide →](./DESIGN_SYSTEM.md)
 
-Elevation-based shadow system from `xs` to `2xl`.
+## 📦 Available Components (56 Total)
 
-## Available Components
+All components include:
+- ✅ Live demos and examples
+- ✅ Multiple variations matching Figma
+- ✅ Dark mode support
+- ✅ Full TypeScript types
+- ✅ Accessible (ARIA)
 
-All shadcn/ui components are pre-installed:
+### Component Categories
 
-- **Feedback**: Alert, Dialog, Popover, Tooltip, Toast
-- **Forms**: Button, Checkbox, Input, Label, Radio Group, Select, Switch, Textarea, Form
-- **Navigation**: Breadcrumb, Menu, Navigation Menu, Pagination, Tabs
-- **Data Display**: Accordion, Avatar, Badge, Card, Table, Carousel, Skeleton
-- **Layout**: Collapsible, Context Menu, Drawer, Dropdown Menu, Sheet
-- **Inputs**: Calendar, Date Picker, Input OTP, Slider, Toggle, Toggle Group
+#### Layout
+Aspect Ratio • Separator • Scroll Area • Sidebar
+
+#### Navigation
+Breadcrumb • Menubar • Navigation Menu • Pagination • Tabs
+
+#### Forms & Inputs
+Button • Button Group • Input • Input Group • Input OTP • Textarea • Select • Native Select • Combobox • Command • Checkbox • Radio Group • Switch • Slider • Toggle • Toggle Group • Label • Field
+
+#### Display & Feedback
+Alert • Alert Dialog • Badge • Avatar • Card • Empty • Item • KBD • Skeleton • Spinner • Toast (Sonner)
+
+#### Dialogs & Overlays
+Dialog • Drawer • Sheet • Popover • Tooltip • Hover Card • Dropdown Menu • Context Menu
+
+#### Data
+Table • Data Table • Chart • Calendar • Date Picker • Progress
+
+#### Utilities
+Collapsible • Carousel • Login Card
+
+[View all components with live demos →](http://localhost:3000)
 
 ## Custom Hooks
 
@@ -220,7 +307,17 @@ extend: {
 - `tsconfig.json` - TypeScript configuration
 - `next.config.ts` - Next.js configuration
 
-## Development
+## 🛠️ Development
+
+### Available Scripts
+
+```bash
+npm run dev                    # Start development server
+npm run build                  # Build for production
+npm run start                  # Start production server
+npm run lint                   # Run ESLint
+npm run sync-figma-tokens      # Sync design tokens from Figma
+```
 
 ### Code Quality
 
@@ -233,6 +330,13 @@ npm run lint  # Run ESLint
 ```bash
 npx tsc --noEmit
 ```
+
+### Design Token Workflow
+
+1. Update design in Figma
+2. Run `npm run sync-figma-tokens`
+3. Design tokens automatically update
+4. Components reflect new design
 
 ## Deployment
 
@@ -258,12 +362,34 @@ CMD ["npm", "start"]
 
 See [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying)
 
-## Resources
+## 📚 Documentation
+
+- [Design System Guide](./DESIGN_SYSTEM.md) - Complete design system documentation
+- [Figma Sync Guide](./docs/FIGMA_SYNC.md) - How to sync with Figma
+- [Component Demos](http://localhost:3000) - Live component examples
+- [Design Tokens Showcase](http://localhost:3000/design-tokens) - View all tokens
+
+## 📖 Resources
 
 - [shadcn/ui Documentation](https://ui.shadcn.com)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Figma Variables](https://help.figma.com/hc/en-us/articles/15339657135383)
 - [Geist Font](https://vercel.com/font)
+
+## 🌐 Tech Stack
+
+- **Framework**: Next.js 16.1.4 (App Router + Turbopack)
+- **UI Library**: shadcn/ui + Radix UI
+- **Styling**: Tailwind CSS v4
+- **Language**: TypeScript 5
+- **State**: React 19.2.3
+- **Theme**: next-themes
+- **Icons**: Lucide React
+- **Forms**: React Hook Form + Zod
+- **Charts**: Recharts
+- **Toast**: Sonner
+- **Design Tokens**: Figma API + Style Dictionary
 
 ## License
 

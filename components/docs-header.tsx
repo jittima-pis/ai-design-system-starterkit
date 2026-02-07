@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ModeSwitcher } from "@/components/mode-switcher"
 
 export function DocsHeader() {
   return (
@@ -20,14 +21,15 @@ export function DocsHeader() {
               Documentation
             </Link>
             <Link
-              href="/components"
+              href="/design-tokens"
               className="transition-colors hover:text-foreground/80 text-muted-foreground"
             >
-              Components
+              Design Tokens
             </Link>
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
+          <ModeSwitcher />
           <Button variant="ghost" size="icon" asChild>
             <a
               href="https://github.com/shadcn/ui"

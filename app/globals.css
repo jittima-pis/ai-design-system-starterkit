@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant primary (&:is(.primary *));
 
 @theme inline {
   --color-background: var(--background);
@@ -113,6 +114,42 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Primary Mode - Figma Variable Mode: 5248:0 - Brown/Warm Theme */
+.primary {
+  --background: #F6EEE7;              /* Warm beige/cream */
+  --foreground: #3E332E;              /* Dark brown */
+  --card: #F6EEE7;                    /* Warm beige/cream */
+  --card-foreground: #3E332E;         /* Dark brown */
+  --popover: #FFFFFF;                 /* White */
+  --popover-foreground: #3E332E;      /* Dark brown */
+  --primary: #3E332E;                 /* Dark brown */
+  --primary-foreground: #FAFAFA;      /* Off-white */
+  --secondary: #E4CDB7;               /* Light brown/tan */
+  --secondary-foreground: #A07553;    /* Medium brown */
+  --muted: #F5F5F5;                   /* Light gray */
+  --muted-foreground: #737373;        /* Medium gray */
+  --accent: #F5F5F5;                  /* Light gray */
+  --accent-foreground: #171717;       /* Dark gray */
+  --destructive: #DC2626;             /* Red */
+  --destructive-foreground: #FAFAFA;  /* Off-white */
+  --border: #E5E5E5;                  /* Light gray border */
+  --input: #E5E5E5;                   /* Light gray input */
+  --ring: #737373;                    /* Medium gray ring */
+  --chart-1: #EC9455;                 /* Orange 1 */
+  --chart-2: #F76B15;                 /* Orange 2 */
+  --chart-3: #EF5F00;                 /* Orange 3 */
+  --chart-4: #CC4E00;                 /* Orange 4 */
+  --chart-5: #582D1D;                 /* Dark brown */
+  --sidebar: #FAFAFA;                 /* Off-white */
+  --sidebar-foreground: #0A0A0A;      /* Near black */
+  --sidebar-primary: #171717;         /* Dark gray */
+  --sidebar-primary-foreground: #FAFAFA; /* Off-white */
+  --sidebar-accent: #F5F5F5;          /* Light gray */
+  --sidebar-accent-foreground: #171717; /* Dark gray */
+  --sidebar-border: #D4D4D4;          /* Light gray border */
+  --sidebar-ring: #737373;            /* Medium gray ring */
 }
 
 @layer base {

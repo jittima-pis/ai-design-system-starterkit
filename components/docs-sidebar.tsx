@@ -10,6 +10,9 @@ const components = [
     title: "Getting Started",
     items: [
       { title: "Introduction", href: "/" },
+      { title: "Design Tokens", href: "/design-tokens" },
+      { title: "Variable Modes", href: "/modes" },
+      { title: "Mode Colors", href: "/mode-colors" },
     ],
   },
   {
