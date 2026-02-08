@@ -46,10 +46,10 @@ export default function AlertPage() {
             <div>
               <h3 className="text-sm font-medium mb-4">Default</h3>
               <Alert>
-                <Terminal className="h-4 w-4" />
-                <AlertTitle>Heads up!</AlertTitle>
+                <CheckCircle2 className="h-4 w-4" />
+                <AlertTitle>Success! Your changes have been saved</AlertTitle>
                 <AlertDescription>
-                  You can add components to your app using the cli.
+                  This is an alert with icon, title and description.
                 </AlertDescription>
               </Alert>
             </div>
@@ -61,7 +61,7 @@ export default function AlertPage() {
               <h3 className="text-sm font-medium mb-4">Title Only</h3>
               <Alert>
                 <Info className="h-4 w-4" />
-                <AlertTitle>Information</AlertTitle>
+                <AlertTitle>This Alert has a title and an icon. No description.</AlertTitle>
               </Alert>
             </div>
 
@@ -71,10 +71,10 @@ export default function AlertPage() {
             <div>
               <h3 className="text-sm font-medium mb-4">Destructive</h3>
               <Alert variant="destructive">
-                <TriangleAlert className="h-4 w-4" />
-                <AlertTitle>Error</AlertTitle>
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Unable to process your payment.</AlertTitle>
                 <AlertDescription>
-                  Your session has expired. Please log in again.
+                  Please verify your billing information and try again.
                 </AlertDescription>
               </Alert>
             </div>

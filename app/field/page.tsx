@@ -15,7 +15,6 @@ import {
   SwitchDemo,
   ChoiceCard,
   FieldGroup,
-  ResponsiveLayout,
 } from '@/components/field-demo'
 
 export default function FieldPage() {
@@ -108,10 +107,6 @@ export default function FieldPage() {
           {/* 11. Field Group */}
           <FieldGroup />
 
-          <Separator className="my-10" />
-
-          {/* 12. Responsive Layout */}
-          <ResponsiveLayout />
         </div>
 
         {/* Back to Home button */}
