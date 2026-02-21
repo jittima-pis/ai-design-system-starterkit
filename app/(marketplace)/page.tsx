@@ -11,7 +11,6 @@ import {
   User,
 } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function EverydayMarketplace() {
   // Sample product data (8 products as in Figma)
@@ -35,7 +34,6 @@ export default function EverydayMarketplace() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Avatar className="h-10 w-10">
-              <AvatarImage src="/logo.png" />
               <AvatarFallback style={{ backgroundColor: '#3E332E', color: '#FAFAFA' }}>
                 E
               </AvatarFallback>
