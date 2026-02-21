@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ExternalLink, CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
 import { Calendar } from '@/components/ui/calendar'
+import { DateRange } from 'react-day-picker'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -14,7 +15,7 @@ import { cn } from '@/lib/utils'
 
 export default function CalendarPage() {
   const [date, setDate] = useState<Date>()
-  const [rangeDate, setRangeDate] = useState<{ from?: Date; to?: Date }>()
+  const [rangeDate, setRangeDate] = useState<DateRange | undefined>()
   const [dobMonth, setDobMonth] = useState<string>()
   const [dobDay, setDobDay] = useState<string>()
   const [dobYear, setDobYear] = useState<string>()
@@ -125,7 +126,7 @@ export default function CalendarPage() {
                   <p className="text-sm font-medium mb-2">State=Open</p>
                   <Calendar
                     mode="single"
-                    captionLayout="dropdown-buttons"
+                    captionLayout="dropdown"
                     selected={date}
                     onSelect={setDate}
                     className="rounded-md border shadow-sm"
@@ -195,7 +196,7 @@ export default function CalendarPage() {
                     <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
                         mode="single"
-                        captionLayout="dropdown-buttons"
+                        captionLayout="dropdown"
                         selected={date}
                         onSelect={setDate}
                         fromYear={1960}
@@ -374,7 +375,7 @@ export default function CalendarPage() {
                         <PopoverContent className="w-auto p-0" align="start">
                           <Calendar
                             mode="single"
-                            captionLayout="dropdown-buttons"
+                            captionLayout="dropdown"
                             selected={date}
                             onSelect={setDate}
                             fromYear={1960}

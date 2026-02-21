@@ -13,7 +13,7 @@ import { typography, effects } from './design-tokens'
  * getFigmaTextClass('text-lg', 'semi-bold') // Returns figma style reference
  */
 export function getFigmaTextStyle(size: string, weight: string) {
-  const textStyle = typography.textStyles[size]?.[weight]
+  const textStyle = (typography.textStyles as any)[size]?.[weight]
 
   if (!textStyle) {
     console.warn(`Text style not found: ${size}/${weight}`)
@@ -30,7 +30,7 @@ export function getFigmaTextStyle(size: string, weight: string) {
  * getFigmaShadow('shadow-md')
  */
 export function getFigmaShadow(variant: string) {
-  const shadow = effects.shadows[variant]
+  const shadow = (effects.shadows as any)[variant]
 
   if (!shadow) {
     console.warn(`Shadow style not found: ${variant}`)
@@ -47,7 +47,7 @@ export function getFigmaShadow(variant: string) {
  * getFigmaBlur('blur-md')
  */
 export function getFigmaBlur(variant: string) {
-  const blur = effects.blur[variant]
+  const blur = (effects.blur as any)[variant]
 
   if (!blur) {
     console.warn(`Blur style not found: ${variant}`)
@@ -64,7 +64,7 @@ export function getFigmaBlur(variant: string) {
  * getFigmaBackdropBlur('backdrop-blur-md')
  */
 export function getFigmaBackdropBlur(variant: string) {
-  const backdropBlur = effects.backdropBlur[variant]
+  const backdropBlur = (effects.backdropBlur as any)[variant]
 
   if (!backdropBlur) {
     console.warn(`Backdrop blur style not found: ${variant}`)
@@ -81,7 +81,7 @@ export function getFigmaBackdropBlur(variant: string) {
  * getTextStylesBySize('text-lg') // Returns all weights for lg size
  */
 export function getTextStylesBySize(size: string) {
-  return typography.textStyles[size] || {}
+  return (typography.textStyles as any)[size] || {}
 }
 
 /**
@@ -95,7 +95,7 @@ export function getAllTextSizes(): string[] {
  * Get all available text weights for a size
  */
 export function getTextWeights(size: string): string[] {
-  const styles = typography.textStyles[size]
+  const styles = (typography.textStyles as any)[size]
   return styles ? Object.keys(styles) : []
 }
 
