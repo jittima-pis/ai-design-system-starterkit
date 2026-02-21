@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Moon, Sun, Palette } from 'lucide-react'
+import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
@@ -15,19 +15,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Badge } from '@/components/ui/badge'
 
-/**
- * Figma Variable Mode Switcher
- *
- * Switches between Figma variable modes:
- * - Light Mode (372:1) - Default light theme
- * - Dark Mode (373:0) - Dark theme
- * - Primary Mode (5248:0) - Primary color theme
- */
 export function ModeSwitcher() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
-  // Prevent hydration mismatch
   React.useEffect(() => {
     setMounted(true)
   }, [])
@@ -40,20 +31,12 @@ export function ModeSwitcher() {
     {
       value: 'light',
       label: 'Light Mode',
-      description: 'Figma Mode: 372:1',
       icon: Sun,
     },
     {
       value: 'dark',
       label: 'Dark Mode',
-      description: 'Figma Mode: 373:0',
       icon: Moon,
-    },
-    {
-      value: 'primary',
-      label: 'Primary Mode',
-      description: 'Warm/Brown Theme - 5248:0',
-      icon: Palette,
     },
   ]
 
@@ -66,16 +49,10 @@ export function ModeSwitcher() {
         <Button variant="outline" size="sm" className="gap-2">
           <CurrentIcon className="h-4 w-4" />
           <span className="hidden sm:inline">{currentMode.label}</span>
-          <Badge variant="secondary" className="hidden md:inline-flex">
-            Mode
-          </Badge>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-64">
-        <DropdownMenuLabel className="flex items-center gap-2">
-          <Palette className="h-4 w-4" />
-          Variable Modes
-        </DropdownMenuLabel>
+      <DropdownMenuContent align="end" className="w-48">
+        <DropdownMenuLabel>Theme</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {modes.map((mode) => {
           const Icon = mode.icon
@@ -85,27 +62,18 @@ export function ModeSwitcher() {
             <DropdownMenuItem
               key={mode.value}
               onClick={() => setTheme(mode.value)}
-              className="flex flex-col items-start gap-1 cursor-pointer"
+              className="flex items-center gap-2 cursor-pointer"
             >
-              <div className="flex items-center gap-2 w-full">
-                <Icon className="h-4 w-4" />
-                <span className="font-medium">{mode.label}</span>
-                {isActive && (
-                  <Badge variant="default" className="ml-auto text-xs">
-                    Active
-                  </Badge>
-                )}
-              </div>
-              <span className="text-xs text-muted-foreground ml-6">
-                {mode.description}
-              </span>
+              <Icon className="h-4 w-4" />
+              <span className="font-medium">{mode.label}</span>
+              {isActive && (
+                <Badge variant="default" className="ml-auto text-xs">
+                  Active
+                </Badge>
+              )}
             </DropdownMenuItem>
           )
         })}
-        <DropdownMenuSeparator />
-        <div className="px-2 py-1.5 text-xs text-muted-foreground">
-          Synced from Figma Variable Collection
-        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   )
@@ -129,8 +97,6 @@ export function ModeToggle() {
   const toggleMode = () => {
     if (theme === 'light') {
       setTheme('dark')
-    } else if (theme === 'dark') {
-      setTheme('primary')
     } else {
       setTheme('light')
     }
@@ -169,7 +135,6 @@ export function ModeIndicator() {
   const modeLabels: Record<string, string> = {
     light: 'Light',
     dark: 'Dark',
-    primary: 'Primary',
   }
 
   return (
