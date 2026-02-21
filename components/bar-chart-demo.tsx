@@ -16,7 +16,7 @@ const generateChartData = () => {
   const startDate = new Date(2024, 3, 9) // April 9
   const endDate = new Date(2024, 5, 30) // June 30
 
-  let currentDate = new Date(startDate)
+  const currentDate = new Date(startDate)
   while (currentDate <= endDate) {
     const month = currentDate.toLocaleString('en-US', { month: 'short' })
     const day = currentDate.getDate()

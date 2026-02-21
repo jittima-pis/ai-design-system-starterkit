@@ -1,6 +1,6 @@
 "use client"
 
-import { Search, Info, Link2, Plus, ArrowUp, RefreshCcw, Copy, CornerDownLeft, Check, CircleCheck } from "lucide-react"
+import { Search, Info, Link2, Plus, ArrowUp, RefreshCcw, Copy, CornerDownLeft, CircleCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 // InputGroup Type 1: Search with Results

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -93,7 +94,7 @@ export default function DatePickerPage() {
         {/* Back to Home button */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

@@ -23,14 +23,6 @@ interface FigmaStyle {
   description: string
 }
 
-interface FigmaTextStyle {
-  fontFamily: string
-  fontWeight: number
-  fontSize: number
-  lineHeight: { value: number; unit: string }
-  letterSpacing: { value: number; unit: string }
-}
-
 /**
  * Fetch Figma file styles
  */
@@ -50,28 +42,10 @@ async function fetchFigmaStyles(): Promise<Record<string, FigmaStyle>> {
 }
 
 /**
- * Fetch style details by ID
- */
-async function fetchStyleById(styleId: string): Promise<any> {
-  const response = await fetch(`${API_BASE}/files/${FIGMA_FILE_KEY}/nodes?ids=${styleId}`, {
-    headers: {
-      'X-Figma-Token': FIGMA_TOKEN,
-    },
-  })
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch style ${styleId}: ${response.statusText}`)
-  }
-
-  const data = await response.json()
-  return data.nodes?.[styleId]
-}
-
-/**
  * Parse text styles from Figma
  */
-function parseTextStyles(styles: Record<string, FigmaStyle>): Record<string, any> {
-  const textStyles: Record<string, any> = {}
+function parseTextStyles(styles: Record<string, FigmaStyle>): Record<string, unknown> {
+  const textStyles: Record<string, Record<string, unknown>> = {}
 
   Object.entries(styles).forEach(([id, style]) => {
     if (style.styleType === 'TEXT') {
@@ -97,8 +71,8 @@ function parseTextStyles(styles: Record<string, FigmaStyle>): Record<string, any
 /**
  * Parse effect styles (shadows, blur) from Figma
  */
-function parseEffectStyles(styles: Record<string, FigmaStyle>): Record<string, any> {
-  const effectStyles: Record<string, any> = {
+function parseEffectStyles(styles: Record<string, FigmaStyle>): Record<string, Record<string, unknown>> {
+  const effectStyles: Record<string, Record<string, unknown>> = {
     shadows: {},
     blur: {},
     backdropBlur: {},
@@ -140,8 +114,8 @@ function parseEffectStyles(styles: Record<string, FigmaStyle>): Record<string, a
  * Generate design tokens file
  */
 function generateDesignTokensFile(
-  textStyles: Record<string, any>,
-  effectStyles: Record<string, any>
+  textStyles: Record<string, unknown>,
+  effectStyles: Record<string, Record<string, unknown>>
 ): string {
   return `/**
  * Design Tokens - Synced from Figma

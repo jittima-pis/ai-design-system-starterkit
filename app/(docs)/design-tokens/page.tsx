@@ -1,10 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import { ExternalLink, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
-import { typography, effects, colors } from '@/lib/design-tokens'
+import { colors } from '@/lib/design-tokens'
 import {
   getAllTextSizes,
   getTextWeights,
@@ -310,7 +311,7 @@ import { getFigmaTextStyle } from '@/lib/figma-styles'`}
         {/* Back to Home */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

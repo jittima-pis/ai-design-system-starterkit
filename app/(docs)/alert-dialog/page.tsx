@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ExternalLink, Trash2, LogOut, AlertTriangle } from 'lucide-react'
 import {
   AlertDialog,
@@ -179,7 +180,7 @@ export default function AlertDialogPage() {
                     <AlertDialogTitle className="text-xl">Special Offer! 🎉</AlertDialogTitle>
                     <AlertDialogDescription className="text-base">
                       Get 50% off on your next purchase! This exclusive offer is only valid
-                      for the next 24 hours. Don't miss out on this amazing deal.
+                      for the next 24 hours. Don&apos;t miss out on this amazing deal.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter className="sm:flex-col sm:space-x-0 gap-2">
@@ -242,7 +243,7 @@ export default function AlertDialogPage() {
         {/* Back to Home button */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

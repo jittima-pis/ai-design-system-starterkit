@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { ArrowUpRight, Bell, Cloud, FolderCode, Plus, RefreshCcw, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -106,10 +107,11 @@ export function EmptyAvatar() {
         {/* Icon and Text */}
         <div className="flex flex-col gap-2 items-center w-full">
           <div className="relative rounded-full w-12 h-12 overflow-hidden">
-            <img
+            <Image
               src={avatarImage1}
               alt="User avatar"
               className="absolute inset-0 w-full h-full object-cover"
+              fill
             />
           </div>
           <h3 className="text-lg font-medium">User Offline</h3>
@@ -137,24 +139,27 @@ export function EmptyAvatarGroup() {
           {/* Avatar Group */}
           <div className="flex items-center pr-2">
             <div className="relative rounded-full w-12 h-12 -mr-2 overflow-hidden">
-              <img
+              <Image
                 src={avatarImage1}
                 alt="Avatar 1"
                 className="absolute inset-0 w-full h-full object-cover"
+                fill
               />
             </div>
             <div className="relative rounded-full w-12 h-12 -mr-2 border overflow-hidden">
-              <img
+              <Image
                 src={avatarImage2}
                 alt="Avatar 2"
                 className="absolute inset-0 w-full h-full object-cover"
+                fill
               />
             </div>
             <div className="relative rounded-full w-12 h-12 -mr-2 border overflow-hidden">
-              <img
+              <Image
                 src={avatarImage3}
                 alt="Avatar 3"
                 className="absolute inset-0 w-full h-full object-cover"
+                fill
               />
             </div>
           </div>

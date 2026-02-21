@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { ExternalLink, CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
@@ -400,7 +401,7 @@ export default function CalendarPage() {
         {/* Back to Home button */}
         <div className="text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

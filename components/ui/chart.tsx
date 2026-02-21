@@ -67,7 +67,7 @@ ChartContainer.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
-    ([_, config]) => config.theme || config.color
+    ([, config]) => config.theme || config.color
   )
 
   if (!colorConfig.length) {
@@ -110,8 +110,8 @@ const ChartTooltipContent = React.forwardRef<
       nameKey?: string
       labelKey?: string
       active?: boolean
-      payload?: Array<any>
-      label?: any
+      payload?: Array<unknown>
+      label?: unknown
     }
 >(
   (
@@ -186,7 +186,7 @@ const ChartTooltipContent = React.forwardRef<
       >
         {!nestLabel ? tooltipLabel : null}
         <div className="grid gap-1.5">
-          {payload.map((item: any, index: number) => {
+          {(payload as Array<Record<string, unknown>>).map((item, index: number) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = config[key as keyof typeof config]
             const indicatorColor = color || item.payload.fill || item.color
@@ -262,7 +262,7 @@ const ChartLegend = RechartsPrimitive.Legend
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
-    payload?: Array<any>
+    payload?: Array<unknown>
     verticalAlign?: "top" | "middle" | "bottom"
     hideIcon?: boolean
     nameKey?: string
@@ -287,7 +287,7 @@ const ChartLegendContent = React.forwardRef<
           className
         )}
       >
-        {payload.map((item: any) => {
+        {(payload as Array<Record<string, unknown>>).map((item) => {
           const key = `${nameKey || item.dataKey || "value"}`
           const itemConfig = config[key as keyof typeof config]
 

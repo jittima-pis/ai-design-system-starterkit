@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -273,7 +274,7 @@ const orangeColor = getOrangeColor('9')  // #F76B15`}
         {/* Back to Home */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

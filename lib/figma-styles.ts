@@ -13,7 +13,7 @@ import { typography, effects } from './design-tokens'
  * getFigmaTextClass('text-lg', 'semi-bold') // Returns figma style reference
  */
 export function getFigmaTextStyle(size: string, weight: string) {
-  const textStyle = (typography.textStyles as any)[size]?.[weight]
+  const textStyle = (typography.textStyles as Record<string, Record<string, unknown>>)[size]?.[weight]
 
   if (!textStyle) {
     console.warn(`Text style not found: ${size}/${weight}`)
@@ -30,7 +30,7 @@ export function getFigmaTextStyle(size: string, weight: string) {
  * getFigmaShadow('shadow-md')
  */
 export function getFigmaShadow(variant: string) {
-  const shadow = (effects.shadows as any)[variant]
+  const shadow = (effects.shadows as Record<string, unknown>)[variant]
 
   if (!shadow) {
     console.warn(`Shadow style not found: ${variant}`)
@@ -47,7 +47,7 @@ export function getFigmaShadow(variant: string) {
  * getFigmaBlur('blur-md')
  */
 export function getFigmaBlur(variant: string) {
-  const blur = (effects.blur as any)[variant]
+  const blur = (effects.blur as Record<string, unknown>)[variant]
 
   if (!blur) {
     console.warn(`Blur style not found: ${variant}`)
@@ -64,7 +64,7 @@ export function getFigmaBlur(variant: string) {
  * getFigmaBackdropBlur('backdrop-blur-md')
  */
 export function getFigmaBackdropBlur(variant: string) {
-  const backdropBlur = (effects.backdropBlur as any)[variant]
+  const backdropBlur = (effects.backdropBlur as Record<string, unknown>)[variant]
 
   if (!backdropBlur) {
     console.warn(`Backdrop blur style not found: ${variant}`)
@@ -81,7 +81,7 @@ export function getFigmaBackdropBlur(variant: string) {
  * getTextStylesBySize('text-lg') // Returns all weights for lg size
  */
 export function getTextStylesBySize(size: string) {
-  return (typography.textStyles as any)[size] || {}
+  return (typography.textStyles as Record<string, Record<string, unknown>>)[size] || {}
 }
 
 /**
@@ -95,7 +95,7 @@ export function getAllTextSizes(): string[] {
  * Get all available text weights for a size
  */
 export function getTextWeights(size: string): string[] {
-  const styles = (typography.textStyles as any)[size]
+  const styles = (typography.textStyles as Record<string, Record<string, unknown>>)[size]
   return styles ? Object.keys(styles) : []
 }
 
@@ -209,16 +209,18 @@ export function isValidMode(modeName: string): boolean {
  * Figma style type guards
  */
 export const is = {
-  textStyle: (style: any): boolean => {
-    return style && typeof style.id === 'string' && typeof style.name === 'string'
+  textStyle: (style: unknown): boolean => {
+    return !!style && typeof (style as Record<string, unknown>).id === 'string' && typeof (style as Record<string, unknown>).name === 'string'
   },
-  shadowStyle: (style: any): boolean => {
-    return style && typeof style.id === 'string' && style.name?.includes('shadow')
+  shadowStyle: (style: unknown): boolean => {
+    const s = style as Record<string, unknown>
+    return !!style && typeof s.id === 'string' && typeof s.name === 'string' && (s.name as string).includes('shadow')
   },
-  blurStyle: (style: any): boolean => {
-    return style && typeof style.id === 'string' && style.name?.includes('blur')
+  blurStyle: (style: unknown): boolean => {
+    const s = style as Record<string, unknown>
+    return !!style && typeof s.id === 'string' && typeof s.name === 'string' && (s.name as string).includes('blur')
   },
-  validMode: (modeName: any): modeName is 'light' | 'dark' | 'primary' => {
+  validMode: (modeName: unknown): modeName is 'light' | 'dark' | 'primary' => {
     return typeof modeName === 'string' && isValidMode(modeName)
   },
 }

@@ -6,16 +6,14 @@ import {
   ChevronRight,
   Frame,
   History,
-  LifeBuoy,
   Map,
   MoreHorizontal,
   PieChart,
-  Send,
   Settings2,
   SquareTerminal,
   Star,
 } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -23,7 +21,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { cn } from "@/lib/utils"
 
 // 1. Sidebar - Closed State (Icon Only)
 export function SidebarClosed() {

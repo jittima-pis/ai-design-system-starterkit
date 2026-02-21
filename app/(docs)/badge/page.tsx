@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ExternalLink, Check } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -83,7 +84,7 @@ export default function BadgePage() {
         {/* Back to Home button */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
-import { ExternalLink, Home, ChevronRight, Slash, MoreHorizontal } from 'lucide-react'
+import Link from 'next/link'
+import { ExternalLink, Home, Slash } from 'lucide-react'
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -178,7 +179,7 @@ export default function BreadcrumbDemo() {
         {/* Back to Home button */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

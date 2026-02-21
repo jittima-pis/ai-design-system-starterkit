@@ -1,7 +1,5 @@
 "use client"
 
-import { CalendarDays } from "lucide-react"
-
 // Next.js icon placeholder - using a simple avatar style
 const NextJsIcon = () => (
   <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center">

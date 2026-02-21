@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -10,7 +11,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { Slider } from '@/components/ui/slider'
 import { ModeIndicator, ModeSwitcher } from '@/components/mode-switcher'
-import { InfoIcon, CheckCircle2, AlertTriangle, XCircle } from 'lucide-react'
+import { InfoIcon, XCircle } from 'lucide-react'
 
 export default function ModesPage() {
   return (
@@ -289,7 +290,7 @@ function MyComponent() {
         {/* Back to Home */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

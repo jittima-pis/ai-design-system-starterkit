@@ -1,6 +1,7 @@
 'use client'
 
-import { ExternalLink, Terminal, AlertCircle, CheckCircle2, Info, TriangleAlert } from 'lucide-react'
+import Link from 'next/link'
+import { ExternalLink, Terminal, AlertCircle, CheckCircle2, Info } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -135,7 +136,7 @@ export default function AlertPage() {
         {/* Back to Home button */}
         <div className="mt-8 text-center">
           <Button variant="outline" asChild>
-            <a href="/">← Back to Home</a>
+            <Link href="/">← Back to Home</Link>
           </Button>
         </div>
       </div>

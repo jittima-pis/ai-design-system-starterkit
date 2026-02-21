@@ -1,6 +1,6 @@
 "use client"
 
-import { Bold, Italic, Underline } from "lucide-react"
+import { Bold, Italic } from "lucide-react"
 import { Toggle } from "@/components/ui/toggle"
 
 // 1. Default Toggle
